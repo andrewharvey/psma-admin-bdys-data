@@ -8,8 +8,8 @@ for f in data/resources_unzip/Local\ Government\ Areas\ */Standard/*LGA_shp.dbf 
         echo "Skipping $f as ${d}/${b}.tab exists"
     else
         echo "$f"
-        query="SELECT poly.LG_PLY_PID AS LG_PLY_PID, attr.LGA_PID AS LGA_PID, attr.DT_CREATE AS DT_CREATE, attr.DT_RETIRE AS DT_RETIRE, attr.LGA_NAME AS LGA_NAME, attr.ABB_NAME AS ABB_NAME, attr.DT_GAZETD AS DT_GAZETD, attr.STATE_PID AS STATE_PID FROM ${b}_POLYGON_shp poly LEFT JOIN \"${f}\".${b}_shp attr ON poly.LGA_PID = attr.LGA_PID"
-        ogr2ogr -f 'MapInfo File' -sql "$query" "${d}/${b}.tab" "${d}/${b}_POLYGON_shp.shp"
+        query="SELECT attr.LGA_PID AS LGA_PID, attr.DT_CREATE AS DT_CREATE, attr.DT_RETIRE AS DT_RETIRE, attr.LGA_NAME AS LGA_NAME, attr.ABB_NAME AS ABB_NAME, attr.DT_GAZETD AS DT_GAZETD, attr.STATE_PID AS STATE_PID, ST_Collect(poly.geometry) AS geometry FROM ${b}_POLYGON_shp poly LEFT JOIN \"${f}\".${b}_shp attr ON poly.LGA_PID = attr.LGA_PID GROUP BY attr.LGA_PID"
+        ogr2ogr -f 'MapInfo File' -dialect 'sqlite' -sql "$query" "${d}/${b}.tab" "${d}/${b}_POLYGON_shp.shp"
     fi
 done
 
