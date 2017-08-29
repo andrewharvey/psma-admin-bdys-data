@@ -13,4 +13,10 @@ unpack:
 	ls -1 data/resources/*.zip | parallel unzip {} -d data/resources_unzip
 
 process:
-	./src/lga.sh
+	./src/process.sh
+
+psql:
+	echo shp2pgsql -dI data/outputs/shp/Local\ Government\ Areas\ AUGUST\ 2017.shp lga_aug17 | psql
+
+pack:
+	./src/pack.sh
