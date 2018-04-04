@@ -8,7 +8,9 @@ pack() {
     case "$FORMAT" in
         xz)
             mkdir -p data/outputs/xz
-            tar -cJf "data/outputs/xz/${b}.tar.xz" "data/outputs/shp/${b}"*
+            cd data/outputs/shp
+            tar -cJf "../xz/${b}.tar.xz" "${b}"*
+            cd ../../../
             ;;
         *)
             mkdir -p data/outputs/zip
