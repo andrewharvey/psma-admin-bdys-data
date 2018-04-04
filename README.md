@@ -45,3 +45,7 @@ To load the processed shapefiles into PostgreSQL use:
 Code licensed under the [ISC license](https://opensource.org/licenses/ISC) per LICENSE.
 
 _Administrative Boundaries ©PSMA Australia Limited licensed by the Commonwealth of Australia under [Creative Commons Attribution 4.0 International licence (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)._
+
+## See also
+
+- [https://github.com/iag-geo/psma-admin-bdys](https://github.com/iag-geo/psma-admin-bdys)
