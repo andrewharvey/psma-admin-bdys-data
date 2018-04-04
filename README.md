@@ -32,7 +32,7 @@ Then unpack and process with:
 - **download_single**: Download a single named dataset into `data/resources`
 - **unpack**: Unzips all downloaded datasets into `data/resources_unzip`
 - **process**: The source datasets are split into per state files with geometry and attributes in seperate files. This stage combines all states together into an Australia wide file and joins all attributes. Outputs to `data/outputs/shp`
-- **pack**: Creates `.tar.xz` files of the `data/outputs/shp` files for easy distribution
+- **pack**: Creates `.tar.xz` (defaults to `.tar.xz`, call `./src/pack.sh zip` directly for `.zip`) files of the `data/outputs/shp` files for easy distribution into `data/outputs/xz` (or `data/outputs/zip`)
 - **clean**: Removes data/index.json only
 - **clean_all**: Removes all downloaded and processed data
 
