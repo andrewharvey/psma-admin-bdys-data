@@ -1,22 +1,39 @@
-# Dependencies:
-# apt-get install wget unzip parallel jq gdal-bin
 
-all: mirror unpack process
+all: data/index.json download_all unpack process
 
-mirror:
+data/index.json:
+	# downleading an index of all resources at https://data.gov.au/dataset/psma-administrative-boundaries
 	mkdir -p data data/resources
-	wget -O data/index.json 'https://data.gov.au/api/3/action/package_show?id=bdcf5b09-89bc-47ec-9281-6b8e9ee147aa'
-	cat data/index.json | jq --raw-output '.result.resources[].url' | grep --fixed-strings --file whitelist.txt > data/resource_urls.txt
-	wget --timestamping -i data/resource_urls.txt --directory-prefix data/resources
+	wget -O $@ 'https://data.gov.au/api/3/action/package_show?id=bdcf5b09-89bc-47ec-9281-6b8e9ee147aa'
+
+download_all: data/index.json
+	# download all resources
+	cat $< | \
+	    jq --raw-output '.result.resources[].url' | \
+	    grep --fixed-strings --file whitelist.txt | \
+	    wget --timestamping -i - --directory-prefix data/resources
+
+download_single: data/index.json
+	# download a single named resource
+	# Usage: make FILE="documents.zip" download_single
+	cat $< | \
+	    jq --raw-output '.result.resources[].url' | \
+	    grep --fixed-strings "${FILE}" | \
+	    wget --timestamping -i - --directory-prefix data/resources
 
 unpack:
+	# unzip
 	ls -1 data/resources/*.zip | parallel unzip {} -d data/resources_unzip
 
 process:
+	# join attributes to geometry and merge states together
 	./src/process.sh
-
-psql:
-	echo shp2pgsql -dI data/outputs/shp/Local\ Government\ Areas\ AUGUST\ 2017.shp lga_aug17 | psql
 
 pack:
 	./src/pack.sh
+
+clean:
+	rm -rf data/index.json
+
+clean_all:
+	rm -rf data
