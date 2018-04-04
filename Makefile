@@ -11,7 +11,7 @@ download_all: data/index.json
 	cat $< | \
 	    jq --raw-output '.result.resources[].url' | \
 	    grep --fixed-strings --file whitelist.txt | \
-	    wget --timestamping -i - --directory-prefix data/resources
+	    wget --timestamping --no-http-keep-alive -i - --directory-prefix data/resources
 
 download_single: data/index.json
 	# download a single named resource
@@ -19,7 +19,7 @@ download_single: data/index.json
 	cat $< | \
 	    jq --raw-output '.result.resources[].url' | \
 	    grep --fixed-strings "${FILE}" | \
-	    wget --timestamping -i - --directory-prefix data/resources
+	    wget --timestamping --no-http-keep-alive -i - --directory-prefix data/resources
 
 unpack:
 	# unzip
