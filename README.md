@@ -2,6 +2,8 @@
 
 Scripts to automate working with [PSMA Administrative Boundaries](https://data.gov.au/dataset/psma-administrative-boundaries) data.
 
+Processed data can be downloaded from [https://tianjara.net/data/psma-admin-bdys/](https://tianjara.net/data/psma-admin-bdys/).
+
 ## Install Dependencies
 
 Debian:
