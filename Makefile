@@ -30,7 +30,7 @@ process:
 	./src/process.sh
 
 pack:
-	./src/pack.sh
+	./src/pack.sh xz
 
 clean:
 	rm -rf data/index.json
