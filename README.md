@@ -19,7 +19,7 @@ To only download a single dataset:
 
     make FILE="documents.zip" download_single
 
-See whitelist.txt for a list of datasets.
+See [whitelist.txt](https://github.com/andrewharvey/psma-admin-bdys-data/blob/master/whitelist.txt) for a list of datasets.
 
 Then unpack and process with:
 
@@ -27,14 +27,14 @@ Then unpack and process with:
 
 ## Make Targets
 
-**data/index.json**: Download a machine readable index of all resources avaliable at https://data.gov.au/dataset/psma-administrative-boundaries into `data/index.json`
-**download_all**: Download all PSMA Administrative Boundaries datasets into `data/resources`
-**download_single**: Download a single named dataset into `data/resources`
-**unpack**: Unzips all downloaded datasets into `data/resources_unzip`
-**process**: The source datasets are split into per state files with geometry and attributes in seperate files. This stage combines all states together into an Australia wide file and joins all attributes. Outputs to `data/outputs/shp`
-**pack**: Creates `.tar.xz` files of the `data/outputs/shp` files for easy distribution
-**clean**: Removes data/index.json only
-**clean_all**: Removes all downloaded and processed data
+- **data/index.json**: Download a machine readable index of all resources avaliable at https://data.gov.au/dataset/psma-administrative-boundaries into `data/index.json`
+- **download_all**: Download all PSMA Administrative Boundaries datasets into `data/resources`
+- **download_single**: Download a single named dataset into `data/resources`
+- **unpack**: Unzips all downloaded datasets into `data/resources_unzip`
+- **process**: The source datasets are split into per state files with geometry and attributes in seperate files. This stage combines all states together into an Australia wide file and joins all attributes. Outputs to `data/outputs/shp`
+- **pack**: Creates `.tar.xz` files of the `data/outputs/shp` files for easy distribution
+- **clean**: Removes data/index.json only
+- **clean_all**: Removes all downloaded and processed data
 
 To load the processed shapefiles into PostgreSQL use:
 
