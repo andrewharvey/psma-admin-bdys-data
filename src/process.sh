@@ -65,6 +65,7 @@ for f in data/resources_unzip/*/Standard/*.tab ; do
     else
         ogr2ogr -update -append "${d}/AUST.shp" "${f}" -nln AUST
     fi
+    rm -f "${d}/${b}.tab" "${d}/${b}.dat" "${d}/${b}.id" "${d}/${b}.map"
 done
 
 echo "OUTPUTTING"
