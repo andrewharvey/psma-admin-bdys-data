@@ -32,6 +32,7 @@ Then unpack and process with:
 
     make unpack process
 
+### PostgreSQL/PostGIS
 To load the processed Shapefile(s) into PostgreSQL/PostGIS, set the [PG environment variables](https://www.postgresql.org/docs/current/static/libpq-envars.html) and run:
 
     make pgsql
