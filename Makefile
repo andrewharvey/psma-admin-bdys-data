@@ -2,7 +2,7 @@
 all: data/index.json download_all unpack process
 
 data/index.json:
-	# downleading an index of all resources at https://data.gov.au/dataset/psma-administrative-boundaries
+	# download an index of all resources at https://data.gov.au/dataset/psma-administrative-boundaries
 	mkdir -p data data/resources
 	wget -O $@ 'https://data.gov.au/api/3/action/package_show?id=bdcf5b09-89bc-47ec-9281-6b8e9ee147aa'
 
