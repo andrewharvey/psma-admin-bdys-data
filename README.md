@@ -11,7 +11,7 @@ Processed outputs can be downloaded from [https://tianjara.net/data/psma-admin-b
 
 ## Install Dependencies
 
-On Debian run:
+On Ubuntu/Debian run:
 
     apt-get install wget unzip parallel jq gdal-bin
 
