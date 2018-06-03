@@ -1,12 +1,17 @@
 # psma-admin-bdys-data
 
-Scripts to automate working with [PSMA Administrative Boundaries](https://data.gov.au/dataset/psma-administrative-boundaries) data.
+A UNIX pipeline to automate working with [PSMA Administrative Boundaries](https://data.gov.au/dataset/psma-administrative-boundaries) data.
 
-Processed data can be downloaded from [https://tianjara.net/data/psma-admin-bdys/](https://tianjara.net/data/psma-admin-bdys/).
+- Downloads data from data.gov.au
+- Join attributes to geometry (they are seperate in upstream)
+- Merge states into a single countrywide dataset
+- Optionally load into PostgreSQL/PostGIS
+
+Processed outputs can be downloaded from [https://tianjara.net/data/psma-admin-bdys/](https://tianjara.net/data/psma-admin-bdys/).
 
 ## Install Dependencies
 
-Debian:
+On Debian run:
 
     apt-get install wget unzip parallel jq gdal-bin
 
@@ -28,6 +33,8 @@ Then unpack and process with:
     make unpack process
 
 ## Make Targets
+
+These make targets are run as part of `make`, this documents what they do.
 
 - **data/index.json**: Download a machine readable index of all resources avaliable at https://data.gov.au/dataset/psma-administrative-boundaries into `data/index.json`
 - **download_all**: Download all PSMA Administrative Boundaries datasets into `data/resources`
