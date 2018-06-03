@@ -1,5 +1,6 @@
 documents.zip
 commonwealth-electoral-boundaries-may-2016.zip
+local-government-areas-may-2018.zip
 local-government-areas-february-2018.zip
 local-government-areas-november-2017.zip
 local-government-areas-august-2017.zip
@@ -11,6 +12,7 @@ state-boundaries-may-2016.zip
 state-electoral-boundaries-february-2018.zip
 state-electoral-boundaries-august-2017.zip
 state-electoral-boundaries-november-2016.zip
+suburbs---localities-may-2018.zip
 suburbs---localities-february-2018.zip
 suburbs---localities-november-2017.zip
 suburbs---localities-august-2017.zip
@@ -18,6 +20,7 @@ suburbs---localities-may-2017.zip
 suburbs---localities-february-2017.zip
 suburbs---localities-november-2016.zip
 townpointsaugust2013.zip
+wards-may-2018.zip
 wards-february-2018.zip
 wards-november-2017.zip
 wards-august-2017.zip
