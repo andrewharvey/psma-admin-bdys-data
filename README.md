@@ -32,6 +32,14 @@ Then unpack and process with:
 
     make unpack process
 
+To load the processed Shapefile(s) into PostgreSQL/PostGIS, set the [PG environment variables](https://www.postgresql.org/docs/current/static/libpq-envars.html) and run:
+
+    make pgsql
+
+or individually with:
+
+    shp2pgsql -dI data/outputs/shp/FILENAME.shp TABLE_NAME | psql
+
 ## Make Targets
 
 These make targets are run as part of `make`, this documents what they do.
@@ -45,14 +53,6 @@ These make targets are run as part of `make`, this documents what they do.
 - **clean**: Removes data/index.json only
 - **clean_all**: Removes all downloaded and processed data
 - **pgsql**: Load Shapefiles into PostgreSQL/PostGIS
-
-To load the processed Shapefiles into PostgreSQL/PostGIS, set the [PG environment variables](https://www.postgresql.org/docs/current/static/libpq-envars.html) and run:
-
-    make pgsql
-
-or individually with:
-
-    shp2pgsql -dI data/outputs/shp/FILENAME.shp TABLE_NAME | psql
 
 ## License
 
