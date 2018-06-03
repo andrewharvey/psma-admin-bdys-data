@@ -37,8 +37,13 @@ Then unpack and process with:
 - **pack**: Creates `.tar.xz` (defaults to `.tar.xz`, call `./src/pack.sh zip` directly for `.zip`) files of the `data/outputs/shp` files for easy distribution into `data/outputs/xz` (or `data/outputs/zip`)
 - **clean**: Removes data/index.json only
 - **clean_all**: Removes all downloaded and processed data
+- **pgsql**: Load Shapefiles into PostgreSQL/PostGIS
 
-To load the processed shapefiles into PostgreSQL use:
+To load the processed Shapefiles into PostgreSQL/PostGIS, set the [PG environment variables](https://www.postgresql.org/docs/current/static/libpq-envars.html) and run:
+
+    make pgsql
+
+or individually with:
 
     shp2pgsql -dI data/outputs/shp/FILENAME.shp TABLE_NAME | psql
 

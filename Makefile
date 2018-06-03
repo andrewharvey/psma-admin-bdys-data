@@ -32,6 +32,9 @@ process:
 pack:
 	./src/pack.sh xz
 
+pgsql:
+	./src/loadPgsql.sh
+
 clean:
 	rm -rf data/index.json
 
