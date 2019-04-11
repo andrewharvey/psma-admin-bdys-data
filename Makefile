@@ -23,7 +23,10 @@ download_single: data/index.json
 
 unpack:
 	# unzip
+	mkdir -p data/resources_unzip
 	ls -1 data/resources/*.zip | parallel unzip {} -d data/resources_unzip
+	# remove tab files from source zip as to avoid getting in the way of those we create
+	rm -f data/resources_unzip/*/Standard/*_tab.*
 
 process:
 	# join attributes to geometry and merge states together
