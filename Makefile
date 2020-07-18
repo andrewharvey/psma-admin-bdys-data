@@ -19,6 +19,7 @@ download_single: data/index.json
 	cat $< | \
 	    jq --raw-output '.result.resources[].url' | \
 	    grep --fixed-strings "${FILE}" | \
+	    head -n 1 | \
 	    wget --timestamping --no-http-keep-alive -i - --directory-prefix data/resources
 
 unpack:
